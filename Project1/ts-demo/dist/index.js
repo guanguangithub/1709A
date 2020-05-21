@@ -38,3 +38,16 @@ function swap(tuple) {
     return [tuple[1], tuple[0]];
 }
 swap(['hello', 100]);
+// 交叉类型 &
+var j = {
+    name: '',
+    id: 100,
+    price: 100,
+    num: 100,
+    code: 100,
+    msg: '联合类型'
+};
+// 联合类型 |
+var i = false;
+var k = 100;
+var l = 'yanjinshuai';

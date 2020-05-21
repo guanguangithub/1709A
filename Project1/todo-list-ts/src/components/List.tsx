@@ -19,3 +19,15 @@ const List: React.FC<IProps> = (props) => {
 }
 
 export default List;
+
+
+interface IState{
+    name: string
+}
+
+interface IProps{
+
+}
+class MyComponent extends React.Component<IProps, IState>{
+
+}

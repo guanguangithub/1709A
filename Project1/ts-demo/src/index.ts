@@ -68,3 +68,26 @@ function swap<T, U>(tuple: [T, U]): [U, T] {
 }
 
 swap(['hello', 100])
+
+// 交叉类型 &
+let j: IListItem & IAjax = {
+    name: '',
+    id: 100,
+    price: 100,
+    num: 100,
+    code: 100,
+    msg: '联合类型'
+}
+
+// 联合类型 |
+let i: number | string | boolean = false;
+
+// 类型别名
+
+type Heweichao = number | string;
+
+type Yanjinshuai = 'yanjinshuai';
+
+let k: Heweichao = 100;
+
+let l: Yanjinshuai = 'yanjinshuai';
