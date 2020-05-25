@@ -9,6 +9,8 @@ import config from './router/config'
 import StoreContext from './context/StoreContext'
 import store from './store'
 
+console.log('config...', config);
+
 function App() {
   return (
     <StoreContext.Provider value={store}>

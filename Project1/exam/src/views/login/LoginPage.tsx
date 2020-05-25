@@ -1,18 +1,22 @@
-import React,{useContext} from 'react';
-import StoreContext from '../../context/StoreContext';
+import React from 'react';
 import {useObserver} from 'mobx-react-lite'
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import styles from './LoginPage.module.scss';
 import { Store } from 'antd/lib/form/interface';
-
+import useStore from '../../context/useStore'
+import { useHistory } from 'react-router-dom';
 
 const LoginPage: React.FC = () => {
-    let {user} = useContext(StoreContext);
+    let {user} = useStore();
 
-    const onFinish = (values: Store) => {
+    let histroy = useHistory();
+    const onFinish = async (values: Store) => {
         console.log('Received values of form: ', values);
-        user.loginAction(values.username, values.password);
+        let result = await user.loginAction(values.username, values.password);
+        if (result.code === 1){
+            histroy.replace('/main');
+        }
     };
 
     // let {user} = useContext(StoreContext);

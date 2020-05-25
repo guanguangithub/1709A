@@ -1,0 +1,12 @@
+.logo{
+    height: 50%;
+}
+
+:global{
+    .ant-layout-header{
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
