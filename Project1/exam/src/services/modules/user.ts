@@ -4,3 +4,8 @@ import request from "../../util/request"
 export let login = (user_name: string, user_pwd: string)=>{
     return request.post('/user/login', {user_name, user_pwd});
 }
+
+// 获取用户信息接口
+export let getUserInfo = ()=>{
+    return request.get('/user/userInfo')
+}

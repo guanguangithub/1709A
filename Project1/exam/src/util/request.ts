@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {getToken} from '../util/index'
 
 const instance = axios.create({
     timeout: 3000,
@@ -9,6 +10,11 @@ const instance = axios.create({
 
 // Add a request interceptor
 instance.interceptors.request.use(function (config) {
+    // 添加登陆态
+    let token = getToken();
+    if (token){
+        config.headers['authorization'] = token;
+    }
     // Do something before request is sent
     return config;
 }, function (error) {

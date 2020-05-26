@@ -2,9 +2,13 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom'
 import {IRouteProps} from '../util/interface'
 import {getToken} from '../util/index'
+import {useObserver} from 'mobx-react-lite'
+import useStore from '../context/useStore';
 
 const RouterView: React.FC<IRouteProps> = props => {
-    return <Switch>{
+    let {user} = useStore();
+
+    return useObserver(()=><Switch>{
         props.routes.map((item, index) => {
             // 配置重定向
             if (item.redirect){
@@ -23,6 +27,10 @@ const RouterView: React.FC<IRouteProps> = props => {
                 if (!/login/.test(path) && !getToken()){
                     routeProps.history.replace('/login');
                 }
+                // 判断是否登陆且有用户信息
+                if (getToken() && !Object.keys(user.userInfo).length){
+                    user.userInfoAction();
+                }
 
                 if (item.component){
                     if (item.children) {
@@ -33,7 +41,7 @@ const RouterView: React.FC<IRouteProps> = props => {
                 }
             }}></Route>
         })
-    }</Switch>
+    }</Switch>)
 }
 
 export default RouterView;
