@@ -8,11 +8,12 @@ import { IAddQuestion } from '../../../util/interface';
 
 const LoginPage: React.FC = () => {
     const titleLayout = {
+        labelCol: { offset: 0 },
         wrapperCol: { offset: 0, span: 8 },
     };
     const selectLayout = {
-        labelCol: { span: 8 },
-        wrapperCol: { span: 6 },
+        labelCol: { offset: 0 },
+        wrapperCol: { offset:0, span: 6 },
     };
 
     // 获取表单实例
@@ -56,6 +57,7 @@ const LoginPage: React.FC = () => {
     }
 
     return useObserver(()=><Form
+        layout="horizontal"
         form={form}
         initialValues={{
             questions_stem: ``,
@@ -89,8 +91,8 @@ const LoginPage: React.FC = () => {
         </Form.Item>
 
         {/* 选择考试类型 */}
-        <p>请选择考试类型:</p>
-        <Form.Item label="请选择考试类型:" {...selectLayout} name="exam_id">
+        <p>请选择考试类型</p>
+        <Form.Item {...selectLayout} name="exam_id">
             <Select>{
                 exam.examTypes.map(item=>{
                     return <Select.Option value={item.exam_id}>{item.exam_name}</Select.Option>
@@ -99,8 +101,8 @@ const LoginPage: React.FC = () => {
         </Form.Item>
 
         {/* 选择课程类型 */}
-        <p>请选择考试类型:</p>
-        <Form.Item label="请选择课程类型:" {...selectLayout} name="subject_id">
+        <p>请选择课程类型</p>
+        <Form.Item {...selectLayout} name="subject_id">
             <Select>{
                 exam.subjectTypes.map(item=>{
                     return <Select.Option value={item.subject_id}>{item.subject_text}</Select.Option>
@@ -109,8 +111,8 @@ const LoginPage: React.FC = () => {
         </Form.Item>
 
         {/* 选择题目类型 */}
-        <p>选择题目类型:</p>
-        <Form.Item label="选择题目类型:" {...selectLayout} name="questions_type_id">
+        <p>选择题目类型</p>
+        <Form.Item {...selectLayout} name="questions_type_id">
             <Select>{
                 exam.questionTypes.map(item=>{
                     return <Select.Option value={item.questions_type_id}>{item.questions_type_text}</Select.Option>
