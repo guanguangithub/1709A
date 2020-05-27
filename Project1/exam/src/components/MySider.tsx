@@ -3,10 +3,6 @@ import { Menu, Layout } from 'antd';
 import { Link } from 'react-router-dom'
 // import styles from './MyHeader.module.scss'
 
-// 引入路由配置表
-// import config from '../router/config'
-
-
 
 // 引入一级路由
 import LoginPage from '../views/login/LoginPage';
@@ -51,7 +47,12 @@ const config = {
         }]
     }]
 }
-console.log(config)
+
+// // 引入路由配置表
+// import routes, { allRoutes } from '../router/config';
+
+// const allRoutes:any = [];
+// console.log(allRoutes)
 
 const showMenu = (menus: any[]) => {
     return menus.map((item) => {
@@ -71,6 +72,7 @@ const showMenu = (menus: any[]) => {
 }
 
 console.log(showMenu(config.routes))
+
 const MyHeader = () => {
     return <Layout.Sider collapsed={false}>
         <Menu

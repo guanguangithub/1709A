@@ -20,3 +20,7 @@ code {
 .ant-form .for-container{
   height: 400px;
 }
+
+.ant-tag{
+  margin: 7px 8px 0 0;
+}

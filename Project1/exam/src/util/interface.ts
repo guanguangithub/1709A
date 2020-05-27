@@ -49,3 +49,23 @@ export interface IAddQuestion {
     questions_answer: string,
     title: string
 }
+
+// 按条件获取试题
+export interface IGetQuestion{
+    questions_type_id?: string,
+    subject_id?: string,
+    exam_id?: string,
+    questions_id?: string
+}
+
+// 试题数据
+export interface IQuestion{
+    questions_id: string,
+    json_path: string,
+    subject_text: string,
+    exam_name: string,
+    user_name: string,
+    questions_type_text: string,
+    questions_stem: string,
+    questions_answer: string
+}

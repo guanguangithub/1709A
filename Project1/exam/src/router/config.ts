@@ -20,7 +20,72 @@ import {
     MailOutlined,
   } from '@ant-design/icons';
   
-  
+export const allRoutes = [{
+    meta: {icon: MenuFoldOutlined, title: '试题管理'},
+    children: [{
+        path: '/main/addQuestion',
+        component: AddQuestionPage,
+        meta: {title: '添加试题'}
+    }, {
+        path: '/main/questionTypePage',
+        component: QuestionTypePage,
+        meta: {title: '试题类型'}
+    }, {
+        path: '/main/viewQuestionPage',
+        component: ViewQuestionPage,
+        meta: {title: '查看试题'}
+    }]
+}, {
+    meta: {icon: PieChartOutlined, title: '用户管理'},
+    children: [{
+        path: '/main/addQuestion',
+        component: AddQuestionPage,
+        meta: {title: '添加用户'}
+    }, {
+        path: '/main/questionTypePage',
+        component: QuestionTypePage,
+        meta: {title: '用户展示'}
+    }]
+}, {
+    meta: {icon: AppstoreOutlined, title: '考试管理'},
+    children: [{
+        path: '/main/addQuestion',
+        component: AddQuestionPage,
+        meta: {title: '添加考试'}
+    }, {
+        path: '/main/questionTypePage',
+        component: QuestionTypePage,
+        meta: {title: '试卷列表'}
+    }]
+}, {
+    meta: {icon: AppstoreOutlined, title: '班级管理'},
+    children: [{
+        path: '/main/addQuestion',
+        component: AddQuestionPage,
+        meta: {title: '班级管理'}
+    }, {
+        path: '/main/questionTypePage',
+        component: QuestionTypePage,
+        meta: {title: '教室管理'}
+    },{
+        path: '/main/viewQuestionPage',
+        component: ViewQuestionPage,
+        meta: {title: '学生管理'}
+    }]
+}, {
+    meta: {icon: AppstoreOutlined, title: '阅卷管理'},
+    children: [{
+        path: '/main/addQuestion',
+        component: AddQuestionPage,
+        meta: {title: '待批班级'}
+    }]
+}] 
+
+// 格式化菜单到路由
+let formatRoutes: any[]= [];
+allRoutes.forEach(item=>{
+    formatRoutes = [...formatRoutes, ...item.children];
+})
 
 export default {
     routes: [{
@@ -31,19 +96,7 @@ export default {
         path: '/main',
         component: MainPage,
         meta: {icon: MenuFoldOutlined, title: '试题管理'},
-        children: [{
-            path: '/main/addQuestion',
-            component: AddQuestionPage,
-            meta: {title: '添加试题'}
-        }, {
-            path: '/main/questionTypePage',
-            component: QuestionTypePage,
-            meta: {title: '试题类型'}
-        }, {
-            path: '/main/viewQuestionPage',
-            component: ViewQuestionPage,
-            meta: {title: '查看试题'}
-        }]
+        children: formatRoutes
     }, {
         path: '/403',
         component: Page403
