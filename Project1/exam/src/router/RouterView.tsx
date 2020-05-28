@@ -40,8 +40,17 @@ const RouterView: React.FC<IRouteProps> = props => {
                     }
                 }
             }}></Route>
-        })
+        }).concat(props.disable!.map((item, index)=>{
+            return <Redirect key={index} exact from={item.path} to="/403" />
+        })).concat(
+            <Redirect to="/404" />
+        )
     }</Switch>)
+}
+// 默认值
+RouterView.defaultProps = {
+    routes: [],
+    disable: []
 }
 
 export default RouterView;

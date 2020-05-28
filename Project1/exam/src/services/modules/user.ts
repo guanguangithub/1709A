@@ -9,3 +9,8 @@ export let login = (user_name: string, user_pwd: string)=>{
 export let getUserInfo = ()=>{
     return request.get('/user/userInfo')
 }
+
+// 获取用户视图权限
+export let getViewAuthority = ()=>{
+    return request.get('/user/view_authority')
+}

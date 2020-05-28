@@ -12,14 +12,16 @@ import { IRouteProps } from '../../util/interface'
 import { useHistory, Link } from 'react-router-dom'
 
 // 引入菜单配置
-import { allRoutes } from '../../router/config';
+import menu from '../../router/menu';
+import { useObserver } from 'mobx-react-lite';
+import useStore from '../../context/useStore';
 
 
 const { Header, Content } = Layout;
 
 const getTitle = (path:string)=>{
     let title = '';
-    allRoutes.forEach(item=>{
+    menu.forEach(item=>{
         item.children.forEach(value=>{
             if (value.path === path){
                 title = value.meta.title;
@@ -33,7 +35,10 @@ const MainPage: React.FC<IRouteProps> = props => {
     let history = useHistory();
     const histories = history.location.pathname.split('/').filter(item=>!!item);
 
-    return <Layout className={styles.container}>
+    // 获取我没有的权限
+    let {user} = useStore();
+
+    return useObserver(()=><Layout className={styles.container}>
         <Header>
             <MyHeader />
         </Header>
@@ -53,10 +58,10 @@ const MainPage: React.FC<IRouteProps> = props => {
                     }
                     <Breadcrumb.Item>{getTitle(history.location.pathname)}</Breadcrumb.Item>
                 </Breadcrumb>,
-                <RouterView routes={props.routes}></RouterView>
+                <RouterView routes={props.routes} disable={user.disableViewAuthority}></RouterView>
             </Content>
         </Layout>
-    </Layout>
+    </Layout>)
 }
 
 export default MainPage;

@@ -7,7 +7,8 @@ export interface IRouterItem {
 }
 // 路由表
 export interface IRouteProps {
-    routes: IRouterItem[]
+    routes: IRouterItem[],
+    disable?: IRouterItem[]
 }
 
 // 考试类型
@@ -68,4 +69,11 @@ export interface IQuestion{
     questions_type_text: string,
     questions_stem: string,
     questions_answer: string
+}
+
+// 视图权限
+export interface IViewAuthority{
+    view_authority_id: string,
+    view_authority_text: string,
+    view_id: string
 }
