@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Menu, Layout } from 'antd';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom';
 // import styles from './MyHeader.module.scss'
 import { useObserver } from 'mobx-react-lite';
 import useStore from '../context/useStore';
@@ -24,11 +24,11 @@ const showMenu = (menus: any[]) => {
 
 const MyHeader = () => {
     let {user} = useStore();
-
+    let match = useHistory().location.pathname;
     return useObserver(()=><Layout.Sider collapsed={false}>
         <Menu
-            defaultSelectedKeys={['/main/addQuestion']}
-            defaultOpenKeys={['/main']}
+            defaultSelectedKeys={[match]}
+            defaultOpenKeys={[`/${match.split('/')[1]}`]}
             mode="inline"
             theme="dark"
         >

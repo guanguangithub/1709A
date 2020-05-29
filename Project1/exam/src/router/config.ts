@@ -30,7 +30,7 @@ export default (myViewAuthority: IRouterItem []) => {
             component: Page404
         }, {
             path: '*',
-            redirect: '/main'
+            redirect: '/main/addQuestion'
         }]
     }
 

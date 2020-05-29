@@ -24,8 +24,15 @@ const RouterView: React.FC<IRouteProps> = props => {
                 // 添加导航首位
                 console.log('routeProps...', routeProps);
                 let path = routeProps.location.pathname;
-                if (!/login/.test(path) && !getToken()){
-                    routeProps.history.replace('/login');
+                // 登陆拦截
+                if (!/login/.test(path)){
+                    if (!getToken()){
+                        routeProps.history.replace(`/login?redirect=${encodeURIComponent(path)}`);
+                    }
+                }else{
+                    if (getToken()){
+                        routeProps.history.replace(`/main/addQuestion`);
+                    }
                 }
                 // 判断是否登陆且有用户信息
                 if (getToken() && !Object.keys(user.userInfo).length){
@@ -43,7 +50,7 @@ const RouterView: React.FC<IRouteProps> = props => {
         }).concat(props.disable!.map((item, index)=>{
             return <Redirect key={index} exact from={item.path} to="/403" />
         })).concat(
-            <Redirect to="/404" />
+            props.disable!.length?<Redirect key="404" to="/404" />:<></>
         )
     }</Switch>)
 }

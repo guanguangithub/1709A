@@ -18,13 +18,13 @@ const MyHeader = () => {
         </Menu.Item>
         <Menu.Divider />
 
-        <Menu.Item key="1">
+        <Menu.Item key="2">
             <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
                 设置
         </a>
         </Menu.Item>
 
-        <Menu.Item key="1">
+        <Menu.Item key="3">
             <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
                 退出登陆
         </a>

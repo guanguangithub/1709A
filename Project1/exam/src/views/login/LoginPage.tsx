@@ -2,7 +2,7 @@ import React from 'react';
 import {useObserver} from 'mobx-react-lite'
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import styles from './LoginPage.module.scss';
+// import styles from './LoginPage.module.scss';
 import { Store } from 'antd/lib/form/interface';
 import useStore from '../../context/useStore'
 import { useHistory } from 'react-router-dom';
@@ -11,11 +11,14 @@ const LoginPage: React.FC = () => {
     let {user} = useStore();
 
     let histroy = useHistory();
+    let redirect = histroy.location.search;
+    redirect = decodeURIComponent(redirect.replace('?redirect=', ''));
+
     const onFinish = async (values: Store) => {
         console.log('Received values of form: ', values);
         let result = await user.loginAction(values.username, values.password);
         if (result.code === 1){
-            histroy.replace('/main');
+            histroy.replace(redirect!=='/404'?redirect: '/main/addQuestion');
         }
     };
 
@@ -50,16 +53,16 @@ const LoginPage: React.FC = () => {
                 <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
-            <a className="login-form-forgot" href="javascript:void 0">
+            <span className="login-form-forgot">
                 Forgot password
-      </a>
+      </span>
         </Form.Item>
 
         <Form.Item>
             <Button type="primary" htmlType="submit" className="login-form-button">
                 Log in
       </Button>
-      Or <a href="">register now!</a>
+      Or  register now!
         </Form.Item>
     </Form>)
 }

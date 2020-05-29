@@ -1,7 +1,7 @@
-import {observable, action, computed} from 'mobx'
+import {observable, action} from 'mobx'
 import {login, getUserInfo, getViewAuthority} from '../../services'
 import {setToken} from '../../util/index'
-import { IUser, IViewAuthority, IRouterItem } from '../../util/interface';
+import { IUser, IViewAuthority } from '../../util/interface';
 import menu from '../../router/menu'
 
 class User{

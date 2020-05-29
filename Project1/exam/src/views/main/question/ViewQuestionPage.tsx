@@ -1,10 +1,10 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import useStore from '../../../context/useStore';
-import { Tag, Select, Form, Button, message } from 'antd';
+import { Tag, Select, Form, Button } from 'antd';
 import { useObserver } from 'mobx-react-lite';
 import { SearchOutlined } from '@ant-design/icons';
 import { Store } from 'antd/lib/form/interface';
-import { IQuestion, IGetQuestion } from '../../../util/interface';
+import { IGetQuestion } from '../../../util/interface';
 
 const { CheckableTag } = Tag;
 
@@ -15,7 +15,7 @@ const LoginPage: React.FC = () => {
         wrapperCol: { span: 4 },
     };
     // 从mobx中拿到数据
-    let { exam, user } = useStore();
+    let { exam } = useStore();
     // 定义选中的学科
     let [selectedTags, setSelectedTags] = useState<string []>([]);
 

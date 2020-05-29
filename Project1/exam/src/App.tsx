@@ -8,13 +8,11 @@ import config from './router/config'
 import { useObserver } from 'mobx-react-lite'
 import useStore from './context/useStore';
 
-console.log('config...', config);
 
 function App() {
   let { user } = useStore();
 
-  return useObserver(() => (
-    <HashRouter>
+  return useObserver(() => (<HashRouter>
       <RouterView routes={config(user.myViewAuthority).routes}></RouterView>
     </HashRouter>
   ));

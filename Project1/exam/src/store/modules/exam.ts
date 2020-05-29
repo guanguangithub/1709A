@@ -1,4 +1,4 @@
-import {observable, action, computed} from 'mobx'
+import {observable, action} from 'mobx'
 import {getQuestionsType, getExamType, getSubject} from '../../services'
 import { IExamType, ISubject, IQuestionType, IAddQuestion, IGetQuestion, IQuestion } from '../../util/interface';
 import { addQuestion, getQuestion } from '../../services/modules/exam';

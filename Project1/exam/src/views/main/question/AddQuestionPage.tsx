@@ -95,7 +95,7 @@ const LoginPage: React.FC = () => {
         <Form.Item {...selectLayout} name="exam_id">
             <Select>{
                 exam.examTypes.map(item=>{
-                    return <Select.Option value={item.exam_id}>{item.exam_name}</Select.Option>
+                    return <Select.Option key={item.exam_id} value={item.exam_id}>{item.exam_name}</Select.Option>
                 })}
             </Select>
         </Form.Item>
@@ -105,7 +105,7 @@ const LoginPage: React.FC = () => {
         <Form.Item {...selectLayout} name="subject_id">
             <Select>{
                 exam.subjectTypes.map(item=>{
-                    return <Select.Option value={item.subject_id}>{item.subject_text}</Select.Option>
+                    return <Select.Option key={item.subject_id} value={item.subject_id}>{item.subject_text}</Select.Option>
                 })}
             </Select>
         </Form.Item>
@@ -115,7 +115,7 @@ const LoginPage: React.FC = () => {
         <Form.Item {...selectLayout} name="questions_type_id">
             <Select>{
                 exam.questionTypes.map(item=>{
-                    return <Select.Option value={item.questions_type_id}>{item.questions_type_text}</Select.Option>
+                    return <Select.Option key={item.questions_type_id} value={item.questions_type_id}>{item.questions_type_text}</Select.Option>
                 })}
             </Select>
         </Form.Item>
