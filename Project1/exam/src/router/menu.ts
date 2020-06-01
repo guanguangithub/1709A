@@ -4,6 +4,9 @@ import AddQuestionPage from '../views/main/question/AddQuestionPage';
 import QuestionTypePage from '../views/main/question/QuestionTypePage';
 import ViewQuestionPage from '../views/main/question/ViewQuestionPage';
 
+import AddTeacher from '../views/main/teacher/AddTeacher';
+import ViewTeacher from '../views/main/teacher/ViewTeacher';
+
 import {
     AppstoreOutlined,
     // MenuUnfoldOutlined,
@@ -40,12 +43,12 @@ export default [{
 }, {
     meta: { icon: PieChartOutlined, title: '用户管理' },
     children: [{
-        path: '/main/addQuestion',
-        component: AddQuestionPage,
+        path: '/main/addTeacher',
+        component: AddTeacher,
         meta: { title: '添加用户' }
     }, {
-        path: '/main/questionTypePage',
-        component: QuestionTypePage,
+        path: '/main/viewTeacher',
+        component: ViewTeacher,
         meta: { title: '用户展示' }
     }]
 }, {

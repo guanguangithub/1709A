@@ -30,7 +30,7 @@ export interface ISubject {
     subject_text: string
 }
 
-// 用户信息
+// 登陆用户信息
 export interface IUser {
     iat: number
     identity_id: string
@@ -76,4 +76,18 @@ export interface IViewAuthority{
     view_authority_id: string,
     view_authority_text: string,
     view_id: string
+}
+
+// 用户列表
+export interface ITeacherInfo{
+    user_name: string,
+    user_pwd: string,
+    user_id: string,
+    identity_text: string
+}
+
+// 用户身份列表
+export interface IIdentifyInfo{
+    identity_id: string,
+    identity_text: string
 }
