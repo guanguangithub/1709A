@@ -3,6 +3,7 @@ import {login, getUserInfo, getViewAuthority} from '../../services'
 import {setToken} from '../../util/index'
 import { IUser, IViewAuthority } from '../../util/interface';
 import menu from '../../router/menu'
+import { updateUserInfo } from '../../services/modules/user';
 
 class User{
     @observable 
@@ -68,7 +69,15 @@ class User{
         })
         this.myViewAuthority = myViewAuthority;
         this.disableViewAuthority = disableViewAuthority;
-        console.log('this.disableViewAuthority...', disableViewAuthority);
+    }
+
+    // 更新头像
+    @action
+    async updateUserInfoAction(avatar: string){
+        let result:any = await updateUserInfo({avatar, user_id: this.userInfo.user_id});
+        if (result.code === 1){
+            this.userInfo.avatar = avatar;
+        }
     }
 }
 

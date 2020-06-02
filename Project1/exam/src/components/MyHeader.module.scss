@@ -1,6 +1,9 @@
 .logo{
     height: 50%;
 }
+.info{
+    display: flex;
+}
 
 :global{
     .ant-layout-header{
@@ -8,5 +11,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+    .ant-upload.ant-upload-select{
+        margin-right: 8px;
     }
 }

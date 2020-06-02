@@ -1,4 +1,5 @@
 import request from "../../util/request"
+import { IUpdateUsr } from "../../util/interface";
 
 // 登陆接口
 export let login = (user_name: string, user_pwd: string)=>{
@@ -13,4 +14,9 @@ export let getUserInfo = ()=>{
 // 获取用户视图权限
 export let getViewAuthority = ()=>{
     return request.get('/user/view_authority')
+}
+
+// 更新用户信息
+export let updateUserInfo = (params: IUpdateUsr)=>{
+    return request.put('/user/user', params)
 }

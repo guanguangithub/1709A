@@ -37,7 +37,17 @@ export interface IUser {
     identity_text: string
     signTime: number
     user_id: string
-    user_name: string
+    user_name: string,
+    avatar?: string
+}
+
+// 更新用户信息
+export interface IUpdateUsr{
+    user_id: string,
+    user_name?: string,
+    user_pwd?: string,
+    identity_id?: string,
+    avatar?: string
 }
 
 // 添加试题
