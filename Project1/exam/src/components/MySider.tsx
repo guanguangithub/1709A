@@ -6,16 +6,16 @@ import { useObserver } from 'mobx-react-lite';
 import useStore from '../context/useStore';
 
 const showMenu = (menus: any[]) => {
-    return menus.map((item) => {
+    return menus.map((item, index) => {
         if (item.meta.show === false) {
             return null;
         }
-        if (item.children) {
-            return <Menu.SubMenu key={item.path} icon={item.meta.icon ? <item.meta.icon /> : null} title={item.meta.title}>{
+        if (item.children && item.children.length) {
+            return <Menu.SubMenu key={index}  icon={item.meta.icon ? <item.meta.icon /> : null} title={item.meta.title}>{
                 showMenu(item.children)
             }</Menu.SubMenu>
         } else {
-            return <Menu.Item key={item.path} icon={item.meta.icon ? <item.meta.icon /> : null}>
+            return <Menu.Item key={index} icon={item.meta.icon ? <item.meta.icon /> : null}>
                 <Link to={item.path}>{item.meta.title}</Link>
             </Menu.Item>
         }

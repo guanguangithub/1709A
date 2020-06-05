@@ -37,6 +37,7 @@ const ViewTeacher: React.FC = () => {
     // 监听active切换
     useEffect(()=>{
         teacher[actionList[active]]();
+        // eslint-disable-next-line
     }, [active]);
 
     return useObserver(()=><>

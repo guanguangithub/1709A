@@ -4,9 +4,18 @@ import { Menu, Dropdown, Avatar, Upload, message } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { useObserver } from 'mobx-react-lite';
 import useStore from '../context/useStore';
+import { useHistory } from 'react-router-dom';
 
 
 const MyHeader = () => {
+    let { user } = useStore();
+    let history = useHistory();
+
+    let logout = ()=>{
+        user.lougoutAction();
+        history.replace('/login')
+    }
+
     const menu = <Menu>
         <Menu.Item key="0">
             <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
@@ -27,13 +36,9 @@ const MyHeader = () => {
         </Menu.Item>
 
         <Menu.Item key="3">
-            <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
-                退出登陆
-        </a>
+            <span onClick={logout}>退出登陆</span>
         </Menu.Item>
     </Menu>;
-
-    let { user } = useStore();
 
     const props = {
         name: 'avatar',

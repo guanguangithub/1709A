@@ -20,7 +20,7 @@ const RouterView: React.FC<IRouteProps> = props => {
             }
 
             // 配置路由渲染
-            return <Route key={index} path={item.path} render={routeProps => {
+            return <Route key={item.path} path={item.path} render={routeProps => {
                 // 添加导航首位
                 console.log('routeProps...', routeProps);
                 let path = routeProps.location.pathname;
@@ -48,9 +48,9 @@ const RouterView: React.FC<IRouteProps> = props => {
                 }
             }}></Route>
         }).concat(props.disable!.map((item, index)=>{
-            return <Redirect key={index} exact from={item.path} to="/403" />
+            return <Redirect key={item.path} exact from={item.path} to="/403" />
         })).concat(
-            props.disable!.length?<Redirect key="404" to="/404" />:<></>
+            props.disable!.length?<Redirect key="404" to="/404" />:<React.Fragment key="404"></React.Fragment>
         )
     }</Switch>)
 }

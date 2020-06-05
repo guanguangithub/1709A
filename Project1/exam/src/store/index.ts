@@ -8,5 +8,5 @@ import Teacher from './modules/teacher'
 export default {
     user: new User(),
     exam: new Exam(),
-    teacher: new Teacher
+    teacher: new Teacher()
 }
