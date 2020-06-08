@@ -2,10 +2,12 @@ import axios from 'axios'
 import {getToken} from '../util/index'
 import { message } from 'antd'
 
+console.log(process.env);
 const instance = axios.create({
     timeout: 3000,
-    baseURL: '//123.206.55.50:7002'
-    // baseURL: 'http://127.0.0.1:7002'
+    // baseURL: '//123.206.55.50:7002'
+    // baseURL: /jasonandjay.com/.test(window.location.host)?'//123.206.55.50:7002': '//127.0.0.1:7002',
+    baseURL: process.env.NODE_ENV === 'production'?'//exam.jasonandjay.com': '//123.206.55.50:7002',
 });
 
 // Add a request interceptor

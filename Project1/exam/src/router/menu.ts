@@ -1,12 +1,12 @@
+import React from 'react';
 
 // 引入二级
-import AddQuestionPage from '../views/main/question/AddQuestionPage';
-import QuestionTypePage from '../views/main/question/QuestionTypePage';
-import ViewQuestionPage from '../views/main/question/ViewQuestionPage';
+// import AddQuestionPage from '../views/main/question/AddQuestionPage';
+// import QuestionTypePage from '../views/main/question/QuestionTypePage';
+// import ViewQuestionPage from '../views/main/question/ViewQuestionPage';
 
-import AddTeacher from '../views/main/teacher/AddTeacher';
-import ViewTeacher from '../views/main/teacher/ViewTeacher';
-
+// import AddTeacher from '../views/main/teacher/AddTeacher';
+// import ViewTeacher from '../views/main/teacher/ViewTeacher';
 import {
     AppstoreOutlined,
     // MenuUnfoldOutlined,
@@ -16,6 +16,14 @@ import {
     // ContainerOutlined,
     MailOutlined,
 } from '@ant-design/icons';
+
+
+const AddQuestionPage = React.lazy(() => import('../views/main/question/AddQuestionPage'));
+const QuestionTypePage = React.lazy(() => import('../views/main/question/QuestionTypePage'));
+const ViewQuestionPage = React.lazy(() => import('../views/main/question/ViewQuestionPage'));
+const AddTeacher = React.lazy(() => import('../views/main/teacher/AddTeacher'));
+const ViewTeacher = React.lazy(() => import('../views/main/teacher/ViewTeacher'));
+
 
 export default [{
     meta: { icon: MenuFoldOutlined, title: '试题管理' },

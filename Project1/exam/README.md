@@ -14,3 +14,15 @@
 
 - 数据流向
     组件->状态管理（vuex，redux，mobx）->请求管理（划分module）->拦截器
+
+
+- 发布上线
+    - 线上环境，开发环境和本地环境的区分（NODE_ENV，判断host）
+    - 路由
+    - http与https
+    - PWA
+    - 优化
+        - 去掉sourceMap
+        - gzip
+        - antd/组件懒加载
+        - 缓存
